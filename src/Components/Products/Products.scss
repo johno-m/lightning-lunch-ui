@@ -1,0 +1,13 @@
+@import "@jsluna/foundation/scss/main";
+
+.app__logo {
+  display: block;
+  width: 16rem;
+  margin: $ln-space auto;
+  vertical-align: middle;
+}
+
+.hero {
+  text-align: center;
+  display: inline-block;
+}

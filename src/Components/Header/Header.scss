@@ -1,0 +1,22 @@
+#ln-header-spacer {
+  display: none;
+}
+
+.ln-c-header {
+  position: relative;
+}
+
+.ln-c-header__main-bar::before {
+  display: none;
+}
+
+.header {
+  &__logo {
+    width: 12rem;
+    vertical-align: middle;
+  }
+  &__search-bar {
+    width: 100%;
+    margin: auto 20px;
+  }
+}
