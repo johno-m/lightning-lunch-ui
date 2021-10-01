@@ -1,0 +1,13 @@
+.search-placeholder {
+  &__container {
+    max-width: 600px;
+    width: 100%;
+    margin: 4rem auto;
+    text-align: center;
+    background-color: white;
+    padding: 2rem;
+  }
+  &__image {
+    width: 40%;
+  }
+}

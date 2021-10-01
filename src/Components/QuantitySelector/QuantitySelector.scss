@@ -1,0 +1,29 @@
+.quantity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  align-content: space-between;
+
+  &__number {
+    flex: 1;
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-family: MaryAnn, Arial, sans-serif;
+  }
+
+  &__button {
+    min-width: 48px;
+    min-height: 48px;
+    background-color: #f06c00;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: white;
+    transition: 0.5s;
+    &:hover {
+      background-color: #e46600;
+    }
+  }
+}

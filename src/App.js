@@ -1,10 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useParams,
-} from 'react-router-dom'
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './app.scss'
 import {
   Header,
@@ -87,6 +82,15 @@ const App = () => {
     }
   }
 
+  function getBasketTotal() {
+    let total = 0
+    basket.basketItems.forEach((product) => {
+      total += product.product.attributes.price.now * product.quantity
+    })
+    console.log(`basket total = ${total}`)
+    return total
+  }
+
   function isInBasket(productId) {
     let result = false
     basket.basketItems.forEach((item) => {
@@ -106,6 +110,7 @@ const App = () => {
       <div className='app'>
         <Header
           quantity={basket.basketItems ? basketQuantity : 0}
+          basketTotal={getBasketTotal()}
           handleSearch={handleSearch}
         />
         <Switch>
@@ -122,6 +127,7 @@ const App = () => {
           <Route path='/basket'>
             <Basket
               basket={basket}
+              basketTotal={getBasketTotal()}
               handleAddToTrolleyClick={handleAddToTrolleyClick}
             />
           </Route>

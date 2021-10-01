@@ -1,0 +1,29 @@
+@import '@jsluna/foundation/scss/main';
+
+.productCard {
+  padding: 10px;
+  text-align: center;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  &__image {
+    width: 50%;
+
+    align-self: center;
+  }
+
+  &__price {
+    margin-top: auto;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+
+    &--flash {
+      color: $ln-color-red;
+    }
+  }
+}

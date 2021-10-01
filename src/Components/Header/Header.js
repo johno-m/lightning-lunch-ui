@@ -8,10 +8,11 @@ import {
 } from '@jsluna/header'
 import { TextButton } from '@jsluna/button'
 import { Basket } from '@jsluna/icons'
+import { formatPrice } from '../../helpers/'
 
 import './Header.scss'
 
-const Header = ({ handleSearch, quantity }) => {
+const Header = ({ handleSearch, basketTotal, quantity }) => {
   const [searchTerm, setSearchTerm] = useState('')
   let history = useHistory()
 
@@ -36,7 +37,10 @@ const Header = ({ handleSearch, quantity }) => {
       <HeaderActions label='Basket'>
         <Link to='/basket'>
           <TextButton className='ln-u-pull-right'>
-            <Basket /> {quantity}
+            <Basket /> {quantity}{' '}
+            <span>
+              {basketTotal > 0 ? `(${formatPrice(basketTotal)})` : null}
+            </span>
             <span className='ln-u-visually-hidden'>Your basket</span>
           </TextButton>
         </Link>
