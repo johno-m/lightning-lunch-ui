@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { Link, useHistory } from 'react-router-dom'
 import {
   Header as LunaHeader,
   HeaderLogo,
@@ -11,12 +11,15 @@ import { Basket } from '@jsluna/icons'
 
 import './Header.scss'
 
-const Header = ({ handleSearch }) => {
+const Header = ({ handleSearch, quantity }) => {
   const [searchTerm, setSearchTerm] = useState('')
+  let history = useHistory()
 
   return (
     <LunaHeader>
+      {/* <Link to='/'> */}
       <HeaderLogo>Lightning Lunch</HeaderLogo>
+      {/* </Link> */}
       <HeaderSearch
         fullWidth
         tabBar='max-nav'
@@ -26,14 +29,17 @@ const Header = ({ handleSearch }) => {
         onSubmit={(e) => {
           e.preventDefault()
           handleSearch(searchTerm)
+          history.push(`/search/${searchTerm}`)
         }}
       />
 
       <HeaderActions label='Basket'>
-        <TextButton className='ln-u-pull-right'>
-          <Basket /> 42
-          <span className='ln-u-visually-hidden'>Your basket</span>
-        </TextButton>
+        <Link to='/basket'>
+          <TextButton className='ln-u-pull-right'>
+            <Basket /> {quantity}
+            <span className='ln-u-visually-hidden'>Your basket</span>
+          </TextButton>
+        </Link>
       </HeaderActions>
     </LunaHeader>
   )
